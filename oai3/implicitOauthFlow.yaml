@@ -1,0 +1,62 @@
+openapi: '3.0.0'
+info:
+  x-ibm-name: implicit  
+  version: 1.0.0
+  title: implicit
+  x-ibm-summary: Secure api with Oauth implicit grant_type
+  description: Test OAI3 for implicit grantType
+x-ibm-configuration:
+  assembly:
+    execute:
+    - invoke:
+        title: invoke
+        version: 2.0.0
+        target-url: 'http://apicsrv01.dp.rtp.raleigh.ibm.com/sample.json'
+  cors:
+    enabled: true
+  enforced: true
+  phase: realized
+  testable: true
+  gateway: datapower-api-gateway
+servers:
+ - url: "/implicitoai3"
+paths:
+  "/getData":
+    get:
+      summary: Operation Get Branches
+      operationId: basicImplicit
+      responses:
+        default:
+          description: Default response
+security:
+  - Oauth:
+    - scopePub
+components:
+  securitySchemes:
+    clientIdHeader:
+      type: apiKey
+      in: header
+      name: clientHeader
+    clientSecretHeader:
+      type: apiKey
+      in: header
+      name: X-IBM-Client-Secret
+    client_id:
+      type: apiKey
+      in: query
+      name: client_id
+    client_secret:
+      type: apiKey
+      in: query
+      name: client_secret
+    Oauth:
+      type: oauth2
+      x-ibm-oauth-provider: oauth
+      flows:
+        implicit:
+          authorizationUrl: 'https://$(catalog.url)/oauthPub/oauth2/authorize'
+          scopes:
+            scopePub: sample scope for implicit oauth
+    
+      
+      

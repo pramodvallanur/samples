@@ -1,0 +1,27 @@
+product: 1.0.0
+info:
+  version: 1.0.0
+  name: product-oai3
+  title: product-oai3
+gateways:
+  - datapower-api-gateway
+plans:
+  default-plan:
+    rate-limits:
+      default:
+        value: 100/1hour
+    title: Default Plan
+    description: Default Plan
+    approval: false
+apis:
+  petstore:
+    $ref: petstore3.0.0.yaml
+visibility:
+  view:
+    type: public
+    orgs: []
+    enabled: true
+  subscribe:
+    type: authenticated
+    orgs: []
+    enabled: true
