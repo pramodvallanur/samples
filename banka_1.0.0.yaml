@@ -1,0 +1,42 @@
+swagger: "2.0"
+info:
+  title: BankA
+  x-ibm-name: banka
+  version: 1.0.0
+host: $(catalog.host)
+schemes:
+- https
+basePath: /banka
+produces:
+- application/json
+consumes:
+- application/json
+security:
+- {}
+securityDefinitions:
+  clientID:
+    type: apiKey
+    in: header
+    name: X-IBM-Client-Id
+x-ibm-configuration:
+  phase: realized
+  testable: true
+  enforced: true
+  cors:
+    enabled: true
+  application-authentication:
+    certificate: false
+  assembly:
+    execute:
+    - invoke:
+        version: 2.0.0
+        target-url: https://apictutorials.mybluemix.net/branches
+  gateway: datapower-api-gateway
+  type: rest
+definitions: {}
+paths:
+  /branches:
+    get:
+      responses:
+        "200":
+          description: 200 OK
