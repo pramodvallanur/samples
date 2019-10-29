@@ -1,0 +1,15 @@
+global-policy: 1.0.0
+info:
+  name: global-prehook
+  title: Global Prehook
+  version: 1.0.0
+gateways:
+- datapower-api-gateway
+assembly:
+  execute:
+  - set-variable:
+      version: 2.0.0
+      title: set-variable
+      actions:
+      - set: message.headers.global
+        value: globalheadervalue
