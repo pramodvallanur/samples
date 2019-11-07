@@ -9,20 +9,20 @@ Enter your API Connect credentials
 Realm? provider/default-idp-2
 Username? steve
 Password? *****
-Logged into apicserver successfully```
+Logged into apicserver successfully```  
 
 2] ```apic members:list --scope catalog --org acme --catalog sandbox --server apicserver
 jason    [state: enabled]   https://apicserver/api/catalogs/5f9fba35-a5d9-46ea-ae57-6c1d7324133c/f91c075c-1097-4ae0-99b4-1a80dadb63a2/members/9d04dc76-54a8-4e4b-89ba-dfee18eeddb9   
-steve    [state: enabled]   https://apicserver/api/catalogs/5f9fba35-a5d9-46ea-ae57-6c1d7324133c/f91c075c-1097-4ae0-99b4-1a80dadb63a2/members/a35d66b7-be19-46e1-9a7a-1e129208dd22```
+steve    [state: enabled]   https://apicserver/api/catalogs/5f9fba35-a5d9-46ea-ae57-6c1d7324133c/f91c075c-1097-4ae0-99b4-1a80dadb63a2/members/a35d66b7-be19-46e1-9a7a-1e129208dd22```  
 
-Please note the scope is important, as you can only transfer to a member already in the catalog. `steve` is the current owner of the catalog and is wanting to transfer the ownership to `jason` (jason's role within the catalog does not matter)
+Please note the scope is important, as you can only transfer to a member already in the catalog. `steve` is the current owner of the catalog and is wanting to transfer the ownership to `jason` (jason's role within the catalog does not matter)  
 
 3] create a json file (in my case: transferOwner.json) with the jason's catalog member url
 ```{
     "new_owner_member_url": "https://mystack.loki.dev.ciondemand.com/api/catalogs/5f9fba35-a5d9-46ea-ae57-6c1d7324133c/f91c075c-1097-4ae0-99b4-1a80dadb63a2/members/9d04dc76-54a8-4e4b-89ba-dfee18eeddb9",
-}```
+}```  
 
 4] ```apic catalogs:transfer-owner --server apicserver --org acme sandbox transferOwner.json
-sandbox   https://mystack.loki.dev.ciondemand.com/api/catalogs/5f9fba35-a5d9-46ea-ae57-6c1d7324133c/f91c075c-1097-4ae0-99b4-1a80dadb63a2```
+sandbox   https://mystack.loki.dev.ciondemand.com/api/catalogs/5f9fba35-a5d9-46ea-ae57-6c1d7324133c/f91c075c-1097-4ae0-99b4-1a80dadb63a2```  
 
 You have now sucessfully transfered the ownership
