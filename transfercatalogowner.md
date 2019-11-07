@@ -38,7 +38,7 @@ sandbox   https://apicserver/api/catalogs/5f9fba35-a5d9-46ea-ae57-6c1d7324133c/f
 
 You have now sucessfully transfered the ownership
 
-## Steps for transfering ownership to an associate in the rog
+## Steps for transfering ownership to an associate in the org
 
 1] Login as the owner of the catalog to initiate the transfer
 
