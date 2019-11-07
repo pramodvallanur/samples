@@ -26,14 +26,14 @@ Please note the scope is important, as you can only transfer to a member already
 3] create a json file (in my case: transferOwner.json) with the jason's catalog member url
 ```
 {
-    "new_owner_member_url": "https://mystack.loki.dev.ciondemand.com/api/catalogs/5f9fba35-a5d9-46ea-ae57-6c1d7324133c/f91c075c-1097-4ae0-99b4-1a80dadb63a2/members/9d04dc76-54a8-4e4b-89ba-dfee18eeddb9",
+    "new_owner_member_url": "https://apicserver/api/catalogs/5f9fba35-a5d9-46ea-ae57-6c1d7324133c/f91c075c-1097-4ae0-99b4-1a80dadb63a2/members/9d04dc76-54a8-4e4b-89ba-dfee18eeddb9",
 }
 ```  
 
 4] Initiate the transfer
 ```
 apic catalogs:transfer-owner --server apicserver --org acme sandbox transferOwner.json
-sandbox   https://mystack.loki.dev.ciondemand.com/api/catalogs/5f9fba35-a5d9-46ea-ae57-6c1d7324133c/f91c075c-1097-4ae0-99b4-1a80dadb63a2
+sandbox   https://apicserver/api/catalogs/5f9fba35-a5d9-46ea-ae57-6c1d7324133c/f91c075c-1097-4ae0-99b4-1a80dadb63a2
 ```  
 
 You have now sucessfully transfered the ownership
