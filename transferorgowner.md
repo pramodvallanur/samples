@@ -60,7 +60,7 @@ steve   https://apicserver/api/orgs/5f9fba35-a5d9-46ea-ae57-6c1d7324133c/associa
 
 `steve` is the current owner of the org and is wanting to transfer the ownership to `jason` 
 
-3] create a json file (in my case: transferOwner.json) with the jason's catalog member url
+3] create a json file (in my case: transferOwner.json) with the jason's associate url
 ```
 {
     "new_owner_associate_url": "https://apicserver/api/orgs/5f9fba35-a5d9-46ea-ae57-6c1d7324133c/associates/69fb9b7c-7071-42a2-b76d-bf48f28cb04c"
