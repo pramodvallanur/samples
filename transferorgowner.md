@@ -1,5 +1,5 @@
 # Transfer Org Owner
-The change can be initiated only by the owner of the Org to either to an associate or a member in the org
+The change can be initiated only by the owner of the Org to either to an associate or a member in the org. (The below example shows for a provider org, the same steps can be executed for the admin org as well)
 
 ## Steps for transfering ownership to a org member
 
