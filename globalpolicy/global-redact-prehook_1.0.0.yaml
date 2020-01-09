@@ -1,0 +1,15 @@
+global-policy: 1.0.0
+info:
+  name: global-prehook
+  title: Global Prehook
+  version: 1.0.0
+gateways:
+- datapower-api-gateway
+assembly:
+  execute:
+  - redact:
+      version: 2.0.0
+      title: redact
+      redactions:
+      - action: remove
+        path: message.headers."X-Client-IP"
