@@ -1,0 +1,76 @@
+swagger: '2.0'
+info:
+  title: redact-sample
+  x-ibm-name: redact-sample
+  version: 1.0.0
+schemes:
+  - https
+basePath: /details
+securityDefinitions:
+  clientIdHeader:
+    type: apiKey
+    in: header
+    name: X-IBM-Client-Id
+x-ibm-configuration:
+  cors:
+    enabled: true
+  gateway: datapower-api-gateway
+  type: rest
+  phase: realized
+  enforced: true
+  testable: true
+  assembly:
+    execute:
+      - invoke:
+          title: invoke
+          version: 2.0.0
+          verb: keep
+          target-url: 'https://mockbackend-apic.com'
+          follow-redirects: false
+          timeout: 60
+          parameter-control:
+            type: blacklist
+          header-control:
+            type: blacklist
+            values:
+              - ^X-IBM-Client-Id$
+          inject-proxy-headers: true
+          description: ''
+      - parse:
+          version: 2.0.0
+          title: parse
+          parse-settings-reference:
+            default: apic-default-parsesettings
+          parse-settings:
+            document_type: detect
+            max_doc_size: 4194304
+            max_nesting_depth: 512
+            max_width: 4096
+            max_name_length: 256
+            max_value_length: 4096
+            max_unique_names: 1024
+            max_unique_prefixes: 1024
+            max_unique_namespaces: 4096
+            max_number_length: 128
+      - redact:
+          version: 2.0.0
+          title: redact
+          redactions:
+            - action: redact
+              path: message.body.Details."Status Code"
+          root: ''
+  properties:
+    target-url:
+      value: 'http://example.com/operation-name'
+      description: The URL of the target service
+      encoded: false
+  application-authentication:
+    certificate: false
+paths:
+  /status:
+    get:
+      responses:
+        '200':
+          schema:
+            type: string
+          description: success
