@@ -32,7 +32,7 @@ steve    [state: enabled]   https://apicserver/api/orgs/5f9fba35-a5d9-46ea-ae57-
 
 4] Initiate the transfer
 ```
-apic org:transfer-owner --server apicserver acme transferOwner.json
+apic orgs:transfer-owner --server apicserver acme transferOwner.json
 acme    [state: enabled]   https://apicserver/api/orgs/5f9fba35-a5d9-46ea-ae57-6c1d7324133c
 ```  
 
