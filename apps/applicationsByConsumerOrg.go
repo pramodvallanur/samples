@@ -63,10 +63,8 @@ func main() {
   //Set to ignore certs
   http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true} 
 
-  //Make the API call
-  //api/consumer-orgs/{org}/{catalog}/{consumer-org}/apps
+  //Make the API call  
   appRequest, err := http.NewRequest("GET",consumerOrgUrl, nil)  
-  //appRequest, err := http.NewRequest("GET","https://mystack.loki.dev.ciondemand.com/api/consumer-orgs/lob-one/sandbox/andre-owner/apps", nil)  
   appRequest.Header.Set("Content-type","application/json")
   //TODO: Replace the bearer token
   appRequest.Header.Set("Authorization", "Bearer token redacted for security reasons. To get the bearer token use token login")
