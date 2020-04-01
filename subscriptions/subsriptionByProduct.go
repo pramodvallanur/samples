@@ -65,8 +65,7 @@ func main() {
   http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true} 
 
   //Make the API call
-  productRequest, err := http.NewRequest("GET",productUrl, nil)  
-  //productRequest, err := http.NewRequest("GET","https://mystack.loki.dev.ciondemand.com/api/catalogs/lob-one/sandbox/products/bank-a-product/1.0.0?fields=add(subscription_urls)", nil)  
+  productRequest, err := http.NewRequest("GET",productUrl, nil)    
   productRequest.Header.Set("Content-type","application/json")
   //TODO: Replace the bearer token
   productRequest.Header.Set("Authorization", "Bearer token")
