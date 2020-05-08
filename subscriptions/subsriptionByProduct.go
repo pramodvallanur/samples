@@ -54,7 +54,7 @@ func main() {
   fmt.Scanln(&productName)   
   
   //Get the Product version as input
-  fmt.Println("Please enter the product name.")
+  fmt.Println("Please enter the product version.")
   var productVer string
   fmt.Scanln(&productVer)  
 
